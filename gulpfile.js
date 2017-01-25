@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var rimraf = require('gulp-rimraf');
 var merge = require('merge2');
+var sequence = require('run-sequence');
 
 var paths = {
   source: "source/",
@@ -16,9 +17,10 @@ gulp.task('clean', function () {
     .pipe(rimraf());
 });
 
-gulp.task('compile', ['clean'], function () {
+gulp.task('compile:commonjs', function () {
   var project = ts.createProject('tsconfig.json', {
-    typescript: require('typescript')
+    typescript: require('typescript'),
+    module:"commonjs"
   });
 
   var tsResult = gulp.src([paths.source + '**/*.ts', "typings/*.d.ts"])
@@ -30,10 +32,10 @@ gulp.task('compile', ['clean'], function () {
   ]);
 });
 
-gulp.task('compile:amd', ['clean'], function () {
+gulp.task('compile:amd', function () {
   var project = ts.createProject('tsconfig.json', {
     typescript: require('typescript'),
-    "module": "amd"
+    module: "amd"
   });
 
   var tsResult = gulp.src([paths.source + '**/*.ts', "typings/*.d.ts"])
@@ -44,3 +46,8 @@ gulp.task('compile:amd', ['clean'], function () {
     tsResult.js.pipe(gulp.dest(paths.output + "amd"))
   ]);
 });
+
+gulp.task('compile', function (done) {
+  return sequence('clean', ['compile:commonjs', 'compile:amd'])
+});
+
