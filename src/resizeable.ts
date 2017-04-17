@@ -4,20 +4,17 @@
  * either via window size change or CSS animation.
  * Meirion Hughes (github.com/MeirionHughes)
  **/
-import { customAttribute, bindable, inject } from 'aurelia-framework';
 import * as erd from 'element-resize-detector';
 
-@inject(Element)
-@customAttribute('resizeable')
 export class ResizeableCustomAttribute {
-
+  static inject = [Element];
   element: HTMLElement;
   callback;
   erd;
 
-  constructor(element) {
+  constructor(element) {    
     this.element = element;
-    this.erd = erd({ strategy: 'scroll' });
+    this.erd = erd({ strategy: 'scroll' });    
   }
 
   bind() {
@@ -26,7 +23,7 @@ export class ResizeableCustomAttribute {
     var widthOld = element.offsetWidth;
     var heightOld = element.offsetHeight;
 
-    this.callback = () => {
+    this.callback = (x) => {
       var event = new CustomEvent("resize", {
         detail: {
           width: this.element.offsetWidth,

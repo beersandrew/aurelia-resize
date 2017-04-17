@@ -1,6 +1,6 @@
 {
   "name": "aurelia-resize",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "an aurelia add-on that detects DOM-element resize events",
   "keywords": [
     "aurelia",
@@ -12,8 +12,8 @@
   "homepage": "https://github.com/MeirionHughes/aurelia-resize",
   "license": "MIT",
   "author": "Meirion Huighes (https://github.com/MeirionHughes)",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "typings": "dist/commonjs/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/MeirionHughes/aurelia-resize"
@@ -21,11 +21,21 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "scripts": {
+    "lint": "cross-env tslint --project tsconfig.json --config tslint.json",
+    "clean": "cross-env rimraf .tmp .nyc_output coverage dist",
+    "build": "npm run clean && concurrently \"npm run build:es2015\" \"npm run build:commonjs\" \"npm run build:amd\"",
+    "build:es2015": "cross-env tsc --project tsconfig.json --rootDir src/ --outDir ./dist/es2015 --module es2015 --target es2015",
+    "build:commonjs": "cross-env tsc --project tsconfig.json --rootDir src/ --outDir ./dist/commonjs --module commonjs",
+    "build:amd": "cross-env tsc --project tsconfig.json --rootDir src/ --outDir ./dist/amd --module amd"
+  },
   "dependencies": {
     "element-resize-detector": "^1.1.10"
   },
   "devDependencies": {
     "aurelia-framework": "^1.0.7",
+    "concurrently": "^3.4.0",
+    "cross-env": "^4.0.0",
     "gulp-rimraf": "^0.2.0",
     "gulp-typescript": "^3.0.2",
     "merge2": "^1.0.2",
