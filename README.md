@@ -17,7 +17,7 @@ Add to your bundles:
 ```
 {
   "name": "aurelia-resize",
-  "path": "../node_modules/aurelia-resize/dist",
+  "path": "../node_modules/aurelia-resize/dist/amd",
   "main": "index"
 },
 {
@@ -31,23 +31,11 @@ Add to your bundles:
 
 jspm install npm:aurelia-resize
 
-## Install (Webpack)
+## Install (Webpack 2)
 
 Install with npm:
 ```
 npm install aurelia-resize --save
-```
-
-Add to your package.json:
-
-```
-"aurelia": {
-  "build": {
-    "resources": [
-      "aurelia-resize/resizeable"
-    ]
-  }
-},
 ```
 
 ## Usage
