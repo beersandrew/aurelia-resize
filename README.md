@@ -2,6 +2,24 @@
 
 an aurelia attribute add-on that detects DOM-element resize events either via window-change or CSS-animation.
 
+![example](https://cloud.githubusercontent.com/assets/3584509/25091546/b16f97e6-2381-11e7-93ba-05cefe91c839.gif)
+
+view:
+```html
+<window>
+  <div style="background-color:#6bb329" resizeable resize.trigger="onContentResize($event.detail)"></div>
+  <h2>width: ${width}</h2>
+  <h2>height: ${height}</h2>
+</window>
+```
+view-model: 
+```js
+onContentResize(x) {
+  this.width = x.width;
+  this.height = x.height;
+}
+```
+
 Dependencies
 [element-resize-detector](https://www.npmjs.com/package/element-resize-detector)
 
