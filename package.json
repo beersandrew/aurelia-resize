@@ -36,10 +36,7 @@
   "devDependencies": {
     "concurrently": "^3.4.0",
     "cross-env": "^4.0.0",
-    "gulp-rimraf": "^0.2.0",
-    "gulp-typescript": "^3.0.2",
-    "merge2": "^1.0.2",
-    "run-sequence": "^1.2.2",
+    "rimraf": "^2.6.1",
     "typescript": "^2.1.4"
   },
   "jspm": {
