@@ -20,8 +20,14 @@ onContentResize(x) {
 }
 ```
 
-Dependencies
-[element-resize-detector](https://www.npmjs.com/package/element-resize-detector)
+## Dependencies
+This package is a simple aurelia-plugin that makes use of  
+[element-resize-detector](https://www.npmjs.com/package/element-resize-detector) to detect changes to a div using a hidden scroll-bar. 
+
+>Caveats:
+> - If the element has position: static it will be changed to position: relative. Any unintentional top/right/bottom/left/z-index styles will therefore be applied and absolute positioned children will be positioned relative to the element.
+> - A hidden element will be injected as a direct child to the element.
+
 
 ## Install (Aurelia CLI)
 
