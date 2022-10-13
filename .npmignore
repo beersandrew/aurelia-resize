@@ -1,8 +1,4 @@
 jspm_packages
 bower_components
 .idea
-typings
-src
-tsconfig.json
-tslint.json
 CONTRIBUTING.md
