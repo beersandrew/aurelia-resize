@@ -1,6 +1,6 @@
 {
-  "name": "aurelia-resize",
-  "version": "1.1.2",
+  "name": "@andybeersdev/aurelia-resize",
+  "version": "1.0.0",
   "description": "an aurelia add-on that detects DOM-element resize events",
   "keywords": [
     "aurelia",
@@ -9,14 +9,13 @@
     "event",
     "layout"
   ],
-  "homepage": "https://github.com/MeirionHughes/aurelia-resize",
+  "homepage": "https://github.com/beersandrew/aurelia-resize",
   "license": "MIT",
-  "author": "Meirion Huighes (https://github.com/MeirionHughes)",
   "main": "dist/commonjs/index.js",
   "typings": "dist/commonjs/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MeirionHughes/aurelia-resize"
+    "url": "https://github.com/beersandrew/aurelia-resize"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -31,7 +30,7 @@
   },
   "dependencies": {
     "aurelia-pal": "^1.3.0",
-    "element-resize-detector": "^1.1.10"
+    "@andybeersdev/element-resize-detector": "^1.0.1"
   },
   "devDependencies": {
     "concurrently": "^3.4.0",
@@ -48,7 +47,7 @@
     },
     "dependencies": {
       "aurelia-pal": "^1.3.0",
-      "element-resize-detector": "^1.1.10"
+      "@andybeersdev/element-resize-detector": "^1.0.1"
     }
   }
 }
